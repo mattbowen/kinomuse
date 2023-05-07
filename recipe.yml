@@ -5,32 +5,38 @@
 name: kinomuse
 # The native container image to build on top of
 # Warning: Non-uBlue images might function unexpectly
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/kinoite-main
 # What fedora version to use. Use an explicit version or `latest`.
 # If you use `latest`, you will be automatically updated
 # to the next major version assuming the image you're using as your base container
 # builds with the tag (all uBlue images do this).
-fedora-version: 37
+fedora-version: 38
 # This description will be visible in the container metadata
-description: A starting point for further customization of uBlue images. Make your own! https://ublue.it/making-your-own/
+description: A low-latency kinonite for music and development
 # These scripts will be executed during the container build
 # Place scripts in scripts/ and put the corresponding filename here
 scripts:
-#  - example.sh
+# - example.sh
 
 # a list of urls of .repo files that should be added to your system
 # this is the proper way to add copr repos to your image
 extrarepos:
 # example:
-# - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-37/atim-starship-fedora-37.repo
+  - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-38/bieszczaders-kernel-cachyos-fedora-38.repo
+  - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-38/bieszczaders-kernel-cachyos-addons-fedora-38.repo
 
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
   # needed for yafti (the first boot installer) (remove if you're not using yafti)
   - python3-pip
-  - libadwaita # libadwaita comes with silverblue, but not with other flavors
-  # add your own below
+  - virt-manager
+  - libvirt
+  - libcap-ng-devel
+  - procps-ng-devel
+  - uksmd
+  - kernel-cachyos-bore
+
 # These Flatpaks (from flathub) will be available for install on boot
 # this is just an example selection.
 # If you leave this empty you can use yafti for post-boot installation
@@ -43,3 +49,4 @@ flatpaks:
   - org.gustavoperedo.FontDownloader
   - com.github.tchx84.Flatseal
   - io.github.celluloid_player.Celluloid
+  - com.usebottles.bottles

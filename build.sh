@@ -20,6 +20,7 @@ if [[ -n "$repos" ]]; then
     echo "---"
 fi
 
+
 echo "-- Installing RPMs defined in recipe.yml --"
 rpm_packages=$(yq '.rpms[]' < /usr/etc/ublue-recipe.yml)
 for pkg in $(echo -e "$rpm_packages"); do \

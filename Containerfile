@@ -1,4 +1,4 @@
-ARG FEDORA_MAJOR_VERSION=37
+ARG FEDORA_MAJOR_VERSION=38
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 
 FROM ${BASE_IMAGE_URL}:${FEDORA_MAJOR_VERSION}
@@ -32,3 +32,5 @@ RUN rm -rf \
         /tmp/* \
         /var/* && \
     ostree container commit
+
+RUN ostree admin finalize-staged
