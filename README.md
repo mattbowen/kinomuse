@@ -1,4 +1,4 @@
-# Starting point
+# kinomuse
 
 [![build-ublue](https://github.com/mattbowen/kinomuse/actions/workflows/build.yml/badge.svg)](https://github.com/mattbowen/kinomuse/actions/workflows/build.yml)
 
