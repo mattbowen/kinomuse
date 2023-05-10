@@ -33,4 +33,3 @@ RUN rm -rf \
         /var/* && \
     ostree container commit
 
-RUN ostree admin finalize-staged
