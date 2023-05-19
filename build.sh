@@ -46,5 +46,5 @@ fi
 echo "-- Updating Kernel --"
 rpm-ostree cliwrap install-to-root /
 rpm-ostree override remove kernel-devel-matched kernel-devel kernel-headers kernel --install kernel-cachyos-bore
-grub2-mkconfig
+grub2-install --efi-directory /mnt/boot --boot-directory /mnt/boot
 echo "---"
