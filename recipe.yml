@@ -36,7 +36,6 @@ rpms:
   - libcap-ng-devel
   - procps-ng-devel
   - uksmd
-  - kernel-cachyos-bore
 
 # These Flatpaks (from flathub) will be available for install on boot
 # this is just an example selection.

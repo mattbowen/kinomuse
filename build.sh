@@ -42,3 +42,8 @@ if [[ -n "$flatpaks" ]]; then
         yq -i ".screens.applications.values.groups.Custom.packages += [{\"$pkg\": \"$pkg\"}]" /usr/etc/yafti.yml
     done
 fi
+
+echo "-- Updating Kernel --"
+rpm-ostree cliwrap install-to-root /
+rpm-ostree override remove kernel-devel-matched kernel-devel kernel-headers kernel --install kernel-cachyos-bore
+echo "---"
