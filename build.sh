@@ -33,7 +33,7 @@ echo "---"
 pip install --prefix=/usr yafti
 
 # add a package group for yafti using the packages defined in recipe.yml
-flatpaks=$(yq '.flatpaks[]' < /tmp/ublue-recipe.yml)
+flatpaks=$(yq '.flatpaks[]' < /usr/etc/ublue-recipe.yml)
 # only try to create package group if some flatpaks are defined
 if [[ -n "$flatpaks" ]]; then            
     yq -i '.screens.applications.values.groups.Custom.description = "Flatpaks defined by the image maintainer"' /usr/etc/yafti.yml
@@ -46,4 +46,5 @@ fi
 echo "-- Updating Kernel --"
 rpm-ostree cliwrap install-to-root /
 rpm-ostree override remove kernel-devel-matched kernel-devel kernel-headers kernel --install kernel-cachyos-bore
+grub2-mkconfig
 echo "---"
