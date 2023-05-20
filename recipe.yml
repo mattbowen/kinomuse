@@ -35,6 +35,7 @@ rpms:
   - libvirt
   - libcap-ng-devel
   - procps-ng-devel
+  - grub2-efi-x64-modules
   - uksmd
 
 # These Flatpaks (from flathub) will be available for install on boot
