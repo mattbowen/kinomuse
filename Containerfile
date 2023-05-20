@@ -24,7 +24,7 @@ COPY ${RECIPE} /usr/etc/ublue-recipe.yml
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 # copy and run the build script
-RUN mount
+RUN echo $(mount)
 COPY build.sh /tmp/build.sh
 RUN chmod +x /tmp/build.sh && /tmp/build.sh
 RUN ostree admin finalize-staged
